@@ -2034,7 +2034,7 @@ textarea.form-control {
   transition: all 0.4s;
   -webkit-transition: all 0.4s;
   padding: 0;
-  background: #FFFFFF;
+  background: #000000 !important; 
   box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
 }
 .navbar .navbar-brand {
@@ -5764,7 +5764,7 @@ textarea.form-control {
   max-height: 700px;
 }
 .page-header.page-header-xs {
-  min-height: 40vh !important;
+  min-height: 60vh !important;
 }
 .page-header.section-dark .content-center,
 .page-header.section-dark .category-absolute {

@@ -9,8 +9,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
-import { ComponentsModule } from './components/components.module';
-import { ExamplesModule } from './examples/examples.module';
+import { ExamplesModule } from './core/examples.module';
 
 
 @NgModule({
@@ -23,8 +22,7 @@ import { ExamplesModule } from './examples/examples.module';
     BrowserModule,
     NgbModule,
     FormsModule,
-    RouterModule,
-    ComponentsModule,
+    RouterModule,    
     ExamplesModule,
     AppRoutingModule,
   ],

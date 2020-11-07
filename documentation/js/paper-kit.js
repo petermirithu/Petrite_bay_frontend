@@ -135,6 +135,7 @@ pk = {
         	if($(document).scrollTop() > $(".navbar").attr("color-on-scroll") ) {
                 if(transparent) {
                     transparent = false;
+                    $('.navbar[color-on-scroll]').addClass('navbar-black') 
                     $('.navbar[color-on-scroll]').removeClass('navbar-transparent');
                 }
             } else {
