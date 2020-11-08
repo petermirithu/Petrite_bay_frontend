@@ -48,7 +48,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 .carousel-control.right,
 .carousel-control.left
 {
-    @include transition($general-transition-time, linear);
+    @include transition($general-transition-time, ease);
 }
 .tagsinput .tag,
 .tagsinput-remove-link,

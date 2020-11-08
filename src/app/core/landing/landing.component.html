@@ -1,16 +1,39 @@
 <div class="wrapper">
-    <div class="page-header section-dark" style="background-image: url('assets/img/antoine-barres.jpg')">
-        <div class="filter"></div>
-        <div class="content-center">
-            <div class="container">
-                <div class="title-brand">
-                    <div class="angular-logo">
-                        <img class="img-rounded img-responsive" src="assets/img/mine/logo.jpeg" alt="">
-                    </div>
-                    <h1 class="presentation-title">Petrite Bay</h1>
+    <div class="page-header">
+        <ngb-carousel class="page-carousel">
+            <ng-template ngbSlide>
+                <div class="filter"></div>
+                <img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Random first slide">                
+                <div class="carousel-caption">
+                    <h3 style="color: #FFBE4A;font-weight: bold;">Welcome to Petrite Bay</h3>
+                    <p style="color: white;">Dogs ask for so little But deserve so much.</p>
                 </div>
-            </div>
-        </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <div class="filter"></div>
+                <img src="https://images.unsplash.com/photo-1515643753254-bc2a61953a01?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Random second slide">
+                <div class="carousel-caption">
+                    <h3 style="color: #FFBE4A;font-weight:bold;">Dog Walking Services</h3>
+                    <p style="color: white;">We love dogs and thats why we are here to offer dog walking services to those who believe that their dogs deserve more.</p>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <div class="filter"></div>
+                <img src="https://images.unsplash.com/photo-1591428955608-8f5e1d40f8f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80" alt="Random third slide">
+                <div class="carousel-caption">
+                    <h3 style="color: #FFBE4A;font-weight:bold;">Dog Training Services</h3>
+                    <p style="color: white;">We offer excerise and training services to dogs because their health matters.</p>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <div class="filter"></div>
+                <img src="https://images.unsplash.com/photo-1554692918-e27df3c74d74?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Random third slide">                
+                <div class="carousel-caption">
+                    <h3 style="color: #FFBE4A;font-weight:bold;">Dog Grooming Services</h3>
+                    <p style="color: white;">We offer dog grooming services which includes hygienic care, cleaning of a dog and maintaing a good appearance for dogs.</p>
+                </div>
+            </ng-template>            
+        </ngb-carousel>        
     </div>
     <div class="main">
         <div class="section text-center">
@@ -21,62 +44,60 @@
                         <h5 class="description">We at Petrite Bay love pets just as you and our main goal is to serve
                             your pet with integrity and care for they play a big role in our lives.</h5>
                         <br>
-                        <a href="#paper-kit" class="btn btn-danger btn-round">See Details</a>
+                        <a href="/#/about" class="btn btn-danger btn-round">See Details</a>
                     </div>
                 </div>
                 <br /><br />
                 <div class="row">
                     <div class="col-md-3">
-                        <div class="info">
-                            <div class="icon icon-danger">
-                                <i class="nc-icon nc-album-2"></i>
+                        <div class="info card">
+                            <div class="icon icon-accent">
+                                <i class="fas fa-dog"></i>                                
                             </div>
                             <div class="description">
                                 <h4 class="info-title">Dog walking services</h4>
-                                <p class="description">Walking the dog regularly provides a basic foundation for
-                                    physical and mental health. Like a child, your dog wants to know the world. If he or
-                                    she is confined to the house for too long, your dog will get bored, and boredom can
-                                    lead to destructive behavior.</p>
+                                <p class="description">We love dogs and thats why we are here to offer dog walking services to those who believe that their dogs deserve more.</p>
+                                <a href="/#/about" class="btn btn-link btn-info">See more</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="info">
-                            <div class="icon icon-danger">
-                                <i class="nc-icon nc-bulb-63"></i>
+                        <div class="info card">
+                            <div class="icon icon-accent">
+                                <i class="fas fa-bath"></i>
                             </div>
                             <div class="description">
                                 <h4 class="info-title">Dog grooming services</h4>
                                 <p>We are invest in hygienic care and cleaning of a dog as well as enhancing a dog's
                                     physical appearance for showing or other types of competitions.</p>
+                                <a href="/#/about"  class="btn btn-link btn-info">See more</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="info">
-                            <div class="icon icon-danger">
-                                <i class="nc-icon nc-chart-bar-32"></i>
+                        <div class="info card">
+                            <div class="icon icon-accent">
+                                <i class="fas fa-dumbbell"></i>
                             </div>
                             <div class="description">
                                 <h4 class="info-title">Excerise and training services</h4>
-                                <p>We engage dogs in various excerises to keep them in top physical conditions since
-                                    daily exercises maintain their fitness, immunity, and overall health.
-
-                                    Training services are also availbale to enhance communication between the owner and
-                                    the dog.</p>
+                                <p>We engage dogs in various excerises to keep them in top physical conditions
+                                    daily exercises maintain their fitness, immunity, and overall health.                                
+                                </p>
+                                <a href="/#/about"  class="btn btn-link btn-info">See more</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="info">
-                            <div class="icon icon-danger">
-                                <i class="nc-icon nc-sun-fog-29"></i>
+                        <div class="info card">
+                            <div class="icon icon-accent">
+                                <i class="fas fa-concierge-bell"></i>
                             </div>
                             <div class="description">
-                                <h4 class="info-title">Delightful design</h4>
-                                <p>Find unique and handmade delightful designs related items directly from our sellers.
+                                <h4 class="info-title">Pet Sitting Services</h4>
+                                <p>We are here to sort you out. With us you can create time for your daily activities as we take care of your dog.
                                 </p>
-                                <a href="#pkp" class="btn btn-link btn-danger">See more</a>
+                                <a href="/#/about"  class="btn btn-link btn-info">See more</a>
                             </div>
                         </div>
                     </div>
@@ -86,54 +107,112 @@
         </div>
         <div class="section text-center">
             <div class="container">
-                <h2 class="title">Our pricing</h2>     
+                <h2 class="title">Our pricing</h2>
                 <h5 class="description">Below are our pricing charges for dog walking</h5>
+                <br>
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-4">
                         <div class="profile-card-6">
                             <img src="https://images.unsplash.com/photo-1596646330272-d1c160031eae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-                            class="img img-responsive">
-                        <div class="profile-name">Small sized 
-                            <br>Dogs</div>
-                        <div class="profile-position">Poodle</div>
-                        <div class="profile-overview">
-                            <p>Price: ksh 200</p>                            
-                        </div>
-                    </div>                    
-                    </div>
-                    <div class="col">
-                        <div class="profile-card-6"><img src="https://images.unsplash.com/photo-1559562328-bc48b8b32e2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-                            class="img img-responsive">
-                        <div class="profile-name">Medium sized
-                                          <br>Dogs</div>
-                        <div class="profile-position">Golden Retriever</div>
-                        <div class="profile-overview">
+                                class="img img-responsive">
+                            <div class="profile-name">Small sized
+                                <br>Dogs</div>
+                            <div class="profile-position">Poodle</div>
                             <div class="profile-overview">
-                                <p>Price: ksh 300</p>                            
+                                <p>Price: ksh 200</p>
                             </div>
                         </div>
-                    </div>                    
                     </div>
-                    <div class="col">
-                        <div class="profile-card-6"><img src="https://images.unsplash.com/photo-1567610938204-4a74d84a397a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                    <div class="col-md-4">
+                        <div class="profile-card-6"><img
+                                src="https://images.unsplash.com/photo-1559562328-bc48b8b32e2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
+                                class="img img-responsive">
+                            <div class="profile-name">Medium sized
+                                <br>Dogs</div>
+                            <div class="profile-position">Golden Retriever</div>
+                            <div class="profile-overview">
+                                <div class="profile-overview">
+                                    <p>Price: ksh 300</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="profile-card-6"><img
+                                src="https://images.unsplash.com/photo-1567610938204-4a74d84a397a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
                                 class="img img-responsive">
                             <div class="profile-name">Huge sized
                                 <br>Dogs</div>
                             <div class="profile-position">German Shepherd</div>
                             <div class="profile-overview">
                                 <div class="profile-overview">
-                                    <p>Price: ksh 400</p>          
+                                    <p>Price: ksh 400</p>
                                 </div>
                             </div>
-                        </div>                                            
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="container snacks">
+                <h2 class="title">We sell snacks too</h2>
+                <h5 class="description">Shop and get free delivery services</h5>
+                <br>
+                <div class="row">                    
+                    <div class="col-md-4">
+                        <div class="card cardX rounded shadow-sm border-0">
+                            <div class="card-body p-4"><img src="assets/img/dogchew.png" alt="" class="img-fluid">
+                                <h5> <a href="#" class="text-dark">TLC Dog Chew</a></h5>
+                                <p class="small text-muted font-italic">Complete and balanced dog snack that contains all natural ingredients.</p>
+                                <h6 class="">ksh 249.00</h6>
+                                <ul class="list-inline small">
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-success"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card cardX rounded shadow-sm border-0">
+                            <div class="card-body p-4"><img src="assets/img/chicken.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
+                                <h5> <a href="#" class="text-dark">Wanpy Oven-Roasted</a></h5>
+                                <p class="small text-muted font-italic">Chicken Jerky Ca-01H 100G</p>
+                                <h6 class="">ksh 299.00</h6>
+                                <ul class="list-inline small">
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-success"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card cardX rounded shadow-sm border-0">
+                            <div class="card-body p-4"><img src="assets/img/reflex.jpg" alt="" class="img-fluid">
+                                <h5> <a href="#" class="text-dark">Reflex Dog food</a></h5>
+                                <p class="small text-muted font-italic">Premium High Quality Puppy Food – Puppy Beef.</p>
+                                <h6 class="">ksh 1,099.00</h6>
+                                <ul class="list-inline small">
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-success"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
             </div>
         </div>
 
         <div class="section team text-center">
             <div class="container">
-                <h2 class="title">Our Team</h2>
+                <h2 class="titleX">Our Team</h2>
                 <div class="row">
                     <div class="col-md-3">
                         <div class="card card-profile card-plain">
@@ -149,12 +228,12 @@
                                 </a>
                             </div>
                             <div class="card-footer text-center">
-                                <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i
-                                        class="fa fa-twitter"></i></a>
-                                <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i
-                                        class="fa fa-google-plus"></i></a>
-                                <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i
-                                        class="fa fa-linkedin"></i></a>
+                                <a href="#pablo" class="btn btn-link btn-just-icon btn-dark"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a href="#pablo" class="btn btn-link btn-just-icon btn-dark"><i
+                                        class="fab fa-google-plus"></i></a>
+                                <a href="#pablo" class="btn btn-link btn-just-icon btn-dark"><i
+                                        class="fab fa-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
@@ -173,12 +252,12 @@
                                 </a>
                             </div>
                             <div class="card-footer text-center">
-                                <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i
-                                        class="fa fa-twitter"></i></a>
-                                <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i
-                                        class="fa fa-google-plus"></i></a>
-                                <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i
-                                        class="fa fa-linkedin"></i></a>
+                                <a href="#pablo" class="btn btn-link btn-just-icon btn-dark"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a href="#pablo" class="btn btn-link btn-just-icon btn-dark"><i
+                                        class="fab fa-google-plus"></i></a>
+                                <a href="#pablo" class="btn btn-link btn-just-icon btn-dark"><i
+                                        class="fab fa-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
@@ -197,12 +276,12 @@
                                 </a>
                             </div>
                             <div class="card-footer text-center">
-                                <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i
-                                        class="fa fa-twitter"></i></a>
-                                <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i
-                                        class="fa fa-google-plus"></i></a>
-                                <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i
-                                        class="fa fa-linkedin"></i></a>
+                                <a href="#pablo" class="btn btn-link btn-just-icon btn-dark"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a href="#pablo" class="btn btn-link btn-just-icon btn-dark"><i
+                                        class="fab fa-google-plus"></i></a>
+                                <a href="#pablo" class="btn btn-link btn-just-icon btn-dark"><i
+                                        class="fab fa-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
@@ -220,12 +299,12 @@
                                 </a>
                             </div>
                             <div class="card-footer text-center">
-                                <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i
-                                        class="fa fa-twitter"></i></a>
-                                <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i
-                                        class="fa fa-google-plus"></i></a>
-                                <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i
-                                        class="fa fa-linkedin"></i></a>
+                                <a href="#pablo" class="btn btn-link btn-just-icon btn-dark"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a href="#pablo" class="btn btn-link btn-just-icon btn-dark"><i
+                                        class="fab fa-google-plus"></i></a>
+                                <a href="#pablo" class="btn btn-link btn-just-icon btn-dark"><i
+                                        class="fab fa-linkedin"></i></a>
                             </div>
                         </div>
                     </div>

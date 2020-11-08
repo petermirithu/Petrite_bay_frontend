@@ -65,7 +65,7 @@
 #navbar-full .navbar {
     border-radius: 0 !important;
     margin-bottom: 0;
-    z-index: 2;
+    z-index: 2;    
 }
 
 .space {
@@ -93,7 +93,8 @@
 }
 
 .main {
-    background-color: #fff;
+    background-color: #efeff3;
+    
     /*     position: relative; */
 }
 

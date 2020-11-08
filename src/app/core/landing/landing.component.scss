@@ -76,3 +76,32 @@
   background-attachment: fixed;
   background-position: center;
 }
+
+.icon-accent{
+  color: gray;
+}
+
+.team .titleX{
+  color: #FFBE4A;
+}
+.team .card-title{
+  color: white !important;
+}
+.team .card-footer{
+  color: gray !important;
+}
+
+.cardX{
+  height: 420px !important;
+  background:  white;
+}
+.img-fluid{
+  max-height: 250px !important;
+  object-fit: cover !important;
+}
+.info{
+  height: 320px;
+  padding: 10px;
+  background-color: white;
+  cursor: pointer;
+}

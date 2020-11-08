@@ -1,9 +1,25 @@
 .header{  
-  color: rgb(255, 255, 255);
+  color: white;
   font-weight: bold;
 }
 .page-header{
-  background-image: url('https://images.unsplash.com/photo-1515643753254-bc2a61953a01?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80');
+  background-image: url('https://images.unsplash.com/photo-1599490775912-7803830604df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
   background-attachment: fixed;
   background-size: cover;  
+  color: white;
+}
+.team .titleX{
+  color: #FFBE4A;
+}
+.team .card-title{
+  color: white !important;
+}
+.team .card-footer{
+  color: gray !important;
+}
+.team{
+  background-image: url('https://images.unsplash.com/photo-1517547196086-e63b7ae6afb0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80');
+  background-size: cover;  
+  background-attachment: fixed;
+  background-position: center;
 }

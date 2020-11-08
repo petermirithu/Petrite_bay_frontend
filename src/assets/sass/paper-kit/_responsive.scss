@@ -495,8 +495,8 @@
     .wrapper{
     //    @include transform-translate-x(0px);
        @include transition (0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1));
-       left: 0;
-       background-color: white;
+       left: 0;    
+       background-color: #efeff3;
     }
 }
 
@@ -611,7 +611,7 @@
             //    @include transform-translate-x(0px);
             @include transition (0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1));
             left: 0;
-            background-color: white;
+            background-color: #efeff3;
         }
 
         .body{

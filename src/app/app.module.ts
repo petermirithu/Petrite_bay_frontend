@@ -24,7 +24,7 @@ import { ExamplesModule } from './core/examples.module';
     FormsModule,
     RouterModule,    
     ExamplesModule,
-    AppRoutingModule,
+    AppRoutingModule,      
   ],
   providers: [],
   bootstrap: [AppComponent]
