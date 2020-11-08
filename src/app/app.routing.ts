@@ -9,12 +9,13 @@ import { LandingComponent } from './core/landing/landing.component';
 import { AboutComponent} from './core/about/about.component'
 import{ContactComponent} from './core/contact/contact.component'
 import {SigninComponent} from './core/signin/signin.component'
+import { AuthGuard } from './auth/user.service';
 
-const routes: Routes =[
-    { path: '', redirectTo: 'home', pathMatch: 'full' },    
+const routes: Routes =[  
+    { path: '', redirectTo: '/home', pathMatch: 'full' },    
     { path: 'home',          component: LandingComponent },
-    { path: 'user-profile',     component: ProfileComponent },
-    { path: 'signup',           component: SignupComponent },    
+    { path: 'profile/:id',     component: ProfileComponent,canActivate: [AuthGuard]},
+    { path: 'signup',           component: SignupComponent},    
     { path: 'about',            component:AboutComponent},
     { path: 'contact',           component:ContactComponent},
     { path: 'signin',            component:SigninComponent}
@@ -25,11 +26,11 @@ const routes: Routes =[
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
-      useHash: true
-    })
+    RouterModule.forRoot(routes,{scrollPositionRestoration:'enabled'}),
+    
   ],
   exports: [
+    RouterModule
   ],
 })
 export class AppRoutingModule { }

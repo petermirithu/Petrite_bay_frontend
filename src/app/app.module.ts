@@ -10,6 +10,10 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
 import { ExamplesModule } from './core/examples.module';
+import {  UserService, AuthGuard, AuthInterceptor } from './auth/user.service'
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 
 
 @NgModule({
@@ -24,9 +28,17 @@ import { ExamplesModule } from './core/examples.module';
     FormsModule,
     RouterModule,    
     ExamplesModule,
-    AppRoutingModule,      
+    AppRoutingModule,  
+    HttpClientModule,    
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule   
   ],
-  providers: [],
+  providers: [UserService,AuthGuard,{
+    provide: HTTP_INTERCEPTORS,
+    useClass:AuthInterceptor,
+    multi:true
+  }  
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,29 +16,45 @@
                 <label>Name</label>
                 <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="nc-icon nc-single-02"></i></span>
+                    <span class="input-group-text">
+                      <i class="fas fa-user"></i>
+                    </span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Name" (focus)="focus=true"
-                    (blur)="focus=false">
+                  <input type="text" class="form-control" placeholder="Name" name="name" name="ngModel"
+                    [(ngModel)]="contactus.name" (focus)="focus=true" (blur)="focus=false">
                 </div>
               </div>
               <div class="col-md-6">
                 <label>Email</label>
                 <div class="input-group" [ngClass]="{'input-group-focus':focus1===true}">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="nc-icon nc-email-85"></i></span>
+                    <span class="input-group-text">
+                      <i class="fas fa-envelope"></i>
+                    </span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Email" (focus)="focus1=true"
-                    (blur)="focus1=false">
+                  <input type="email" class="form-control" placeholder="Email" name="email" email="ngModel"
+                    [(ngModel)]="contactus.email" (focus)="focus1=true" (blur)="focus1=false">
                 </div>
               </div>
             </div>
+            <label>Subject</label>
+            <div class="input-group" [ngClass]="{'input-group-focus':focus1===true}">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fas fa-pen"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" placeholder="Subject" (focus)="focus1=true" name="subject"
+                subject="ngModel" [(ngModel)]="contactus.subject" (blur)="focus1=false">
+            </div>
+
             <label>Message</label>
-            <textarea class="form-control" rows="4"
+            <textarea class="form-control" rows="4" name="message" message="ngModel" [(ngModel)]="contactus.message"
               placeholder="Tell us your thoughts and feelings..."></textarea>
             <div class="row">
               <div class="col-md-4 mr-auto ml-auto">
-                <button class="btn btn-danger btn-lg btn-fill">Send Message</button>
+                <button type="submit" (click)="sendMessage()" class="btn btn-danger btn-lg btn-fill">Send
+                  Message</button>
               </div>
             </div>
           </form>

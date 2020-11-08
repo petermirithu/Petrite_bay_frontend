@@ -6,11 +6,11 @@
     "pk2-angular": {
       "root": "",
       "sourceRoot": "src",
-      "projectType": "application",
+      "projectType": "application",      
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "options": {
+          "options": {            
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -27,6 +27,7 @@
               "src/assets/css/nucleo-icons.css"
             ],
             "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/bootstrap/dist/js/bootstrap.js"  
             ]
           },

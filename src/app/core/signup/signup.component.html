@@ -15,7 +15,7 @@
                                 </span>
                               </div>
 
-                                <input type="text" class="form-control" placeholder="Username" (focus)="focus=true" (blur)="focus=false" >
+                                <input type="text" class="form-control" placeholder="Username" name="username" username="ngModel" [(ngModel)]="register.username" (focus)="focus=true" (blur)="focus=false" >
                             </div>
 
 
@@ -27,7 +27,7 @@
                                   </span>
                                 </div>
 
-                                  <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
+                                  <input type="email" class="form-control" name="email" email="ngModel" [(ngModel)]="register.email" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
                               </div>
 
                               <label>Password</label>
@@ -37,7 +37,7 @@
                                     <i class="fas fa-key"></i>
                                   </span>
                                 </div>
-                                  <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
+                                  <input type="password" class="form-control" name="password1" password1="ngModel" [(ngModel)]="register.password1" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
                               </div>
 
                               <label>Confirm Password</label>
@@ -47,12 +47,14 @@
                                     <i class="fas fa-key"></i>
                                   </span>
                                 </div>
-                                  <input type="text" class="form-control" placeholder="Confirm Password" (focus)="focus1=true" (blur)="focus1=false" >
+                                  <input type="password" class="form-control" name="password2" password2="ngModel" [(ngModel)]="register.password2" placeholder="Confirm Password" (focus)="focus1=true" (blur)="focus1=false" >
                               </div>
-                              <button class="btn btn-danger btn-block btn-round">Register</button>
+                              <br>
+                              <p style="color: #C2C2CC;">By continuing, you agree to our terms and conditions</p>                                
+                              <button type="submit" (click)="signup()" class="btn btn-danger btn-block btn-round">Register</button>
                           </form>                          
                           <div style="text-align: center;">
-                            <a href="/#/signin" class="btn btn-link btn-info">Have account?    Sign in</a>
+                            <a href="/signin" class="btn btn-link btn-info">Have account?    Sign in</a>
                           </div>
                       </div>
                     </div>

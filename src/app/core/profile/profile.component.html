@@ -1,86 +1,79 @@
 <div class="wrapper">
-    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fabio-mangione.jpg');">
-        <div class="filter"></div>
+    <div class="page-header page-header-xs" data-parallax="true">
+      <div class="filter"></div>
+      <h1 class="header">Profile</h1>
     </div>
     <div class="section profile-content">
-        <div class="container">
+      <div class="container">                
+        <!--Grid row-->
+        <div class="row">
+          <div class="col-md-6">
+            <br>
+            <br>
             <div class="owner">
                 <div class="avatar">
-                    <img src="./assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                    <img src="https://media.istockphoto.com/vectors/dog-paw-icon-logo-vector-id1005374612?k=6&m=1005374612&s=170667a&w=0&h=Z8MpNCsA7V69THZL55s5qz2ZB_axgJ-X-ccBA28tylc=" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                 </div>
                 <div class="name">
-                    <h4 class="title">Jane Faker<br /></h4>
-                    <h6 class="description">Music Producer</h6>
+                    <h4 class="title">Username: {{profile?.user?.username |titlecase}}<br /></h4>
+                    <div class="description">
+                        <p>First Name: {{profile?.user?.first_name || '***' |titlecase}}</p>
+                        <p>Last Name: {{profile?.user?.last_name || '***' |titlecase }}</p>
+                        <p>Email: {{profile?.user?.email || '***'}}</p>                        
+                        <p>Phone No: {{profile?.phone_no || '***' }}</p>                     
+                    </div>                                        
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 ml-auto mr-auto text-center">
-                    <p>An artist of considerable range, Jane Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
-                    <br />
-                    <button class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</button>
+          </div>
+          <div class="col-md-6">
+            <h3 class="text-center">Update profile</h3>
+            <form class="register-form" *ngIf="profile?.user">                
+                <label>First Name</label>
+                <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fas fa-pen"></i>
+                    </span>
+                  </div>
+                    <input type="text" class="form-control" placeholder="First Name" name="fname" fname="ngModel"  [(ngModel)]="profile.user.first_name" required (focus)="focus1=true" (blur)="focus1=false" >
                 </div>
-            </div>
-            <br/>
-            <div class="nav-tabs-navigation">
-                <div class="nav-tabs-wrapper">
-                    <ngb-tabset [justify]="'center'">
-                        <ngb-tab title="Follows">
-                            <ng-template ngbTabContent >
-                                <div class="row following" id="follows">
-                                    <div class="col-md-6 ml-auto mr-auto">
-                                        <ul class="list-unstyled follows">
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-md-2 col-sm-2 ml-auto mr-auto">
-                                                        <img src="./assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                                    </div>
-                                                    <div class="col-md-7 col-sm-4 ml-auto">
-                                                        <h6>Flume<br/><small>Musical Producer</small></h6>
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-2 ml-auto mr-auto">
-                                                        <div class="form-check">
-                                                          <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" value="" checked="">
-                                                            <span class="form-check-sign"></span>
-                                                          </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <hr />
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-md-2 col-sm-2 ml-auto mr-auto">
-                                                        <img src="./assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                                    </div>
-                                                    <div class="col-md-7 col-sm-4 ml-auto">
-                                                        <h6>Banks<br /><small>Singer</small></h6>
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-2 ml-auto mr-auto">
-                                                        <div class="form-check">
-                                                          <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" value="" checked="">
-                                                            <span class="form-check-sign"></span>
-                                                          </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </ng-template>
-                        </ngb-tab>
-                        <ngb-tab title="Following">
-                            <ng-template ngbTabContent>
-                                <h3 class="text-muted">Not following anyone yet :(</h3>
-                                <br>
-                                <button class="btn btn-warning btn-round">Find artists</button>
-                            </ng-template>
-                        </ngb-tab>
-                    </ngb-tabset>
+
+                <label>Last Name</label>
+                <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fas fa-pen"></i>
+                    </span>
+                  </div>
+                    <input type="text" class="form-control" placeholder="Last Name" name="lname" lname="ngModel"  [(ngModel)]="profile.user.last_name" required (focus)="focus1=true" (blur)="focus1=false" >
                 </div>
-            </div>
+
+                <label>Email</label>
+                <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fas fa-envelope"></i>
+                    </span>
+                  </div>
+                    <input type="email" class="form-control" placeholder="Email" name="email" email="ngModel"  [(ngModel)]="profile.user.email" required (focus)="focus1=true" (blur)="focus1=false" >
+                </div>
+
+                <label>Phone Number</label>
+                <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fas fa-phone"></i>
+                    </span>
+                  </div>
+                    <input type="number" class="form-control" placeholder="Phone Number" name="phoneno" phoneno="ngModel"  [(ngModel)]="profile.phone_no" required (focus)="focus1=true" (blur)="focus1=false" >
+                </div>        
+                <br>        
+                <button type="submit" (click)="updateProfile()" class="btn btn-danger btn-round">Get back</button>
+            </form>
+          </div>
         </div>
+        <!--/Grid row-->
+  
+      </div>
     </div>
-</div>
+  </div>

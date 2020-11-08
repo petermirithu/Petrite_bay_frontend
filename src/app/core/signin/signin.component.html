@@ -26,7 +26,7 @@
                                 </span>
                               </div>
 
-                                <input type="text" class="form-control" placeholder="Username" (focus)="focus=true" (blur)="focus=false" >
+                                <input type="text" class="form-control" placeholder="Username" name="username" username="ngModel" [(ngModel)]="login.username" required (focus)="focus=true" (blur)="focus=false" >
                             </div>
 
                             <label>Password</label>
@@ -36,15 +36,15 @@
                                   <i class="fas fa-key"></i>
                                 </span>
                               </div>
-                                <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
+                                <input type="password" class="form-control" placeholder="Password" name="password" password="ngModel"  [(ngModel)]="login.password" required (focus)="focus1=true" (blur)="focus1=false" >
                             </div>
-                            <button class="btn btn-danger btn-block btn-round">Get back</button>
+                            <button type="submit" (click)="signin()" class="btn btn-danger btn-block btn-round">Get back</button>
                         </form>
                         <div class="forgot">
                             <a href="#" class="btn btn-link btn-info">Forgot password?</a>                              
                         </div>
                         <div style="text-align: center;">
-                          <a href="/#/signup" class="btn btn-link btn-info">Dont have account?    Sign up</a>
+                          <a href="/signup" class="btn btn-link btn-info">Dont have account?    Sign up</a>
                         </div>
                     </div>
                   </div>
