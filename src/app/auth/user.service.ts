@@ -13,8 +13,8 @@ import * as moment from 'moment';
 @Injectable()
 export class UserService {
 
-  // public baseUrl='https://petritebay.herokuapp.com';
-  public baseUrl='http://localhost:8000';  
+  public baseUrl='https://petritebay.herokuapp.com';
+  // public baseUrl='http://localhost:8000';  
     
   private httpOptions: any;
 
