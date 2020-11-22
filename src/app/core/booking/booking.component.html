@@ -1,0 +1,131 @@
+<div class="wrapper">
+  <div class="page-header page-header-xs" data-parallax="true">
+    <div class="filter"></div>
+    <h2 class="header animate__animated animate__rubberBand">Book us</h2>
+  </div>
+  <div class="section profile-content">
+    <div class="container">
+      <h3 class="text-center">Place Booking</h3>
+      <br>
+      <!--Grid row-->
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">         
+          <mat-card>
+            <h4>Select Services:</h4>      
+            <div class="selectServices">
+              <mat-checkbox (change)="checkWalking($event)">Dog Walking</mat-checkbox>
+              <mat-checkbox (change)="checkGrooming($event)">Dog Grooming</mat-checkbox>
+              <mat-checkbox (change)="checkSitting($event)">Pet Sitting</mat-checkbox>
+            </div>    
+          </mat-card> 
+          <br>
+          <mat-card *ngIf="dogWalking.selected==true">
+            <mat-card-header>      
+              <div mat-card-avatar>
+                <i class="fas fa-dog fa-2x"></i>
+              </div>        
+              <mat-card-title><h5>Dog Walking</h5></mat-card-title>              
+            </mat-card-header>            
+            <br>
+            <mat-card-content>              
+              <h5>Select size of dog:</h5>
+              <br>
+              <mat-radio-group class="dogSizes" (change)="setDogSize($event)" aria-label="Select an option">
+                <mat-radio-button value="Small sized i.e. less than 22lb (10kg)">Small sized i.e. less than 22lb (10kg)</mat-radio-button><br>
+                <mat-radio-button value="Medium sized i.e. 22lb - 55lb (10-25kg)">Medium sized i.e. 22lb - 55lb (10-25kg)</mat-radio-button><br>
+                <mat-radio-button value="Large sized i.e. over 55lb (25kg)">Large sized i.e. over 55lb (25kg)</mat-radio-button><br>
+              </mat-radio-group>                            
+              <h5>How many hours do you want your dog walked?</h5>
+              <mat-form-field style="width: 100%;">                
+                <input type="number" (keyup)="enterWalkingHours(dogwalkinghours.value)" #dogwalkinghours matInput placeholder="Enter number of hours">                
+              </mat-form-field>
+              <p><b><i class="fas fa-money-bill-wave-alt"></i> Charge</b></p>
+              <p>{{dogWalking.unit}} * {{dogWalking.hours}} = ksh {{dogWalking.cost}}</p>
+            </mat-card-content>               
+          </mat-card>          
+          <br>          
+          <mat-card *ngIf="dogGrooming.selected==true">
+            <mat-card-header>      
+              <div mat-card-avatar>
+                <i class="fas fa-bath fa-2x"></i>
+              </div>        
+              <mat-card-title><h5>Dog Grooming</h5></mat-card-title>              
+            </mat-card-header>            
+            <br>
+            <mat-card-content>              
+              <h5>What breed is your dog?</h5>              
+              <mat-form-field style="width: 100%;">                
+                <input type="text" [(ngModel)]="dogGrooming.dog_breed" matInput placeholder="Enter breed type">                
+              </mat-form-field>              
+
+              <h5>Select what the session will consist of:</h5>
+              <div class="selectServices">
+                <mat-checkbox (change)="addSession($event)" [checked]="dogGrooming.sessions.indexOf('Dog brushing') >= 0" value="Dog brushing">Dog brushing</mat-checkbox>
+                <mat-checkbox (change)="addSession($event)" [checked]="dogGrooming.sessions.indexOf('Dog bathing') >= 0" value="Dog bathing">Dog bathing</mat-checkbox>
+                <mat-checkbox (change)="addSession($event)" [checked]="dogGrooming.sessions.indexOf('Dog trimming') >= 0" value="Dog trimming">Dog trimming</mat-checkbox>
+                <mat-checkbox (change)="addSession($event)" [checked]="dogGrooming.sessions.indexOf('Dog clipping') >= 0" value="Dog clipping">Dog clipping</mat-checkbox>                            
+              </div>
+              <p><b><i class="fas fa-money-bill-wave-alt"></i> Charge</b></p>
+              <p>ksh {{dogGrooming.cost}}</p>
+            </mat-card-content>            
+          </mat-card>                    
+          <br>
+          <mat-card *ngIf="petSitting.selected==true">
+            <mat-card-header>      
+              <div mat-card-avatar>
+                <i class="fas fa-concierge-bell fa-2x"></i>
+              </div>        
+              <mat-card-title><h5>Pet Sitting</h5></mat-card-title>              
+            </mat-card-header>            
+            <br>
+            <mat-card-content>              
+              <h5>What breed is your dog?</h5>              
+              <mat-form-field style="width: 100%;">                
+                <input type="text" [(ngModel)]="petSitting.dog_breed" matInput placeholder="Enter breed type">                
+              </mat-form-field>              
+
+              <h5>How many days do you want your pet sitted?</h5>
+              <mat-form-field style="width: 100%;">                
+                <input type="number" (keyup)="enterSittingDays(petsittingdays.value)" #petsittingdays  matInput placeholder="Enter number of days">                
+              </mat-form-field>
+              <p><b><i class="fas fa-money-bill-wave-alt"></i> Charge</b></p>
+              <p>{{petSitting.unit}} * {{petSitting.days}} = ksh {{petSitting.cost}}</p>
+            </mat-card-content>            
+          </mat-card>          
+          <br>
+          <mat-card>
+            <mat-card-header>
+              <div mat-card-avatar>                
+                <i class="fas fa-info fa-2x"></i>
+              </div>
+              <mat-card-title><h5>Information Gathering</h5></mat-card-title>
+            </mat-card-header>
+            <br>
+            <mat-card-content>
+              <h5>Book a date for your services:</h5>
+              <mat-form-field>
+                <mat-label>Choose a date</mat-label>
+                <input matInput [(ngModel)]="information.date" [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>          
+              <h5>Enter a pick up & drop location for the dog:</h5>
+              <mat-form-field style="width: 100%;">
+                <textarea type="text" matInput [(ngModel)]="information.placeInfo" placeholder="Enter meet up place Information"></textarea>
+              </mat-form-field>              
+            </mat-card-content>
+          </mat-card>      
+          <br>  
+          <mat-card>
+            <h5>Total Cost : ksh {{information.total}} </h5>
+            <br>
+            <button (click)="confirmBooking()" class="btn btn-danger btn-lg btn-fill">Confirm Booking</button>
+          </mat-card>                                                                                 
+        </div>
+        <div class="col-md-2"></div>        
+      </div>      
+
+    </div>
+  </div>
+</div>

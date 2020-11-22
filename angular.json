@@ -23,12 +23,14 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/assets/sass/paper-kit.scss",              
-              "src/assets/css/nucleo-icons.css"
+              "node_modules/animate.css/animate.min.css",
+              "src/assets/css/nucleo-icons.css",
+              "src/assets/sass/paper-kit.scss"              
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.js"  
+              "./node_modules/bootstrap/dist/js/bootstrap.js",
+              "src/assets/js/custom.js"
             ]
           },
           "configurations": {

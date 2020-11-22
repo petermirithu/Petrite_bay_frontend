@@ -1,0 +1,88 @@
+<div class="wrapper">
+  <div class="page-header page-header-xs" data-parallax="true">
+    <div class="filter"></div>
+    <h2 class="header animate__animated animate__rubberBand">Checkout</h2>
+  </div>
+  <div class="section profile-content">
+    <div class="container">
+      <h3 class="text-center">Confirm order and checkout</h3>
+      <br>
+      <!--Grid row-->
+      <div class="row">
+        <div class="col-md-6">
+          <h4 class="text-center">Items in cart</h4>
+          <br>
+          <br>          
+          <div *ngIf="cart?.products?.length>0">
+            <div *ngFor="let item of cart?.products">
+              <div class="item row card">
+                <div class="info-left col-sm-12">
+                  <span>
+                    <i class="fas fa-times-circle remove" data-dismiss="modal"
+                      (click)="removeItem(userservice.user_current.id,item.product.id)"
+                      style="cursor: pointer; float: right; margin-top: 5px;"></i>
+                    <img src="https://res.cloudinary.com/dycuxocgb/{{item.product.image}}" width="70px">
+                    <span class="itemname">{{item.product.name |titlecase}}</span>
+                  </span>
+                  <small class="text-muted" style="color: #0563b1 !important;">__({{item.quantity}})</small>
+                  <p><small class="text-muted">Cost: ksh {{item.units_price}}</small></p>
+                </div>
+              </div>
+            </div> 
+          </div>
+          <div *ngIf="cart?.products?.length<1">
+            <h5>No items in Cart</h5>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <h4 class="text-center">Payment</h4>
+          <br>
+          <br>
+          <h5>Amout to pay: <b>ksh {{cart?.total || 0 }}</b></h5>
+          <br>
+          <p>Delivery is only within Nairobi. Payment will be on delivery</p>          
+          <br>
+          <form class="payment-form">
+            <div class="row">              
+              <div class="col-md-6">
+                <label>Email</label>
+                <div class="input-group" [ngClass]="{'input-group-focus':focus1===true}">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fas fa-envelope"></i>
+                    </span>
+                  </div>
+                  <input type="email" class="form-control" placeholder="Email" name="email" email="ngModel"
+                    [(ngModel)]="order.email" (focus)="focus1=true" (blur)="focus1=false">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label>Phone Number</label>
+                <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fas fa-phone"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="phone number" name="phoneno" phoneno="ngModel"
+                    [(ngModel)]="order.phoneno" (focus)="focus=true" (blur)="focus=false">
+                </div>
+              </div>
+            </div>       
+            <br>     
+            <label>Place to deliver Items</label>
+            <textarea class="form-control" rows="4" name="deliveryInfo" deliveryInfo="ngModel" [(ngModel)]="order.deliveryInfo"
+              placeholder="Tell us where you want us to deliver you items ..."></textarea>
+            <div class="row">
+              <div class="col-md-12 mr-auto ml-auto">
+                <br>
+                <button type="submit" (click)="confirmOrder()" class="btn btn-danger btn-lg btn-fill">Confirm Order</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--/Grid row-->
+    </div>
+  </div>
+</div>

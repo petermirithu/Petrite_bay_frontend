@@ -92,7 +92,7 @@
 }
 
 .cardX{
-  height: 420px !important;
+  height: 500px !important;
   background:  white;
 }
 .img-fluid{
@@ -104,5 +104,9 @@
   padding: 10px;
   background-color: white;
   cursor: pointer;
+}
+.card-profile .card-category{
+  font-weight: bold !important;
+  font-size: 12px !important;
 }
 

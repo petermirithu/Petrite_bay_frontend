@@ -1,7 +1,7 @@
 <div class="wrapper">
     <div class="page-header page-header-xs" data-parallax="true">
       <div class="filter"></div>
-      <h1 class="header">Profile</h1>
+      <h2 class="header animate__animated animate__rubberBand">Profile</h2>
     </div>
     <div class="section profile-content">
       <div class="container">                
@@ -68,11 +68,164 @@
                     <input type="number" class="form-control" placeholder="Phone Number" name="phoneno" phoneno="ngModel"  [(ngModel)]="profile.phone_no" required (focus)="focus1=true" (blur)="focus1=false" >
                 </div>        
                 <br>        
-                <button type="submit" (click)="updateProfile()" class="btn btn-danger btn-round">Get back</button>
+                <button type="submit" (click)="updateProfile()" class="btn btn-danger btn-round">Update</button>
             </form>
           </div>
         </div>
+        <hr>
         <!--/Grid row-->
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="text-center">Past Orders</h3>
+            <br>
+            <mat-accordion *ngIf="orders?.length>0">
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let order of orders">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Receipt No: {{order.receipt_no}}
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Orded on: {{order.date | date}}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>                
+                <p>Cost: ksh {{order.total}}</p>                
+                <p>Delivery Info: {{order.deliveryInfo}}</p>
+                <h4>Items</h4>
+                <table class="table table-hover animated">
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th>Quantity</th>
+                      <th class="text-center">Price</th>
+                      <th class="text-center units">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of order.products">
+                      <td class="sub">
+                        <div class="media">
+                          <a class="thumbnail pull-left">
+                            <img class="media-object" src="https://res.cloudinary.com/dycuxocgb/{{item.product.image}}"
+                              style="width: 72px; height: 72px;padding: 10px;"> </a>
+                          <div class="media-body">
+                            <p class="media-heading">{{item.product.name |titlecase}}</p>                            
+                          </div>
+                        </div>
+                      </td>
+
+                      <td class="sub" style="text-align: center">
+                        {{item.quantity}}
+                      </td>
+                      <td class="sub text-center"><strong>Ksh {{item.product.price}}</strong></td>
+                      <td class="sub text-center units"><strong>Ksh {{item.units_price}}</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </mat-expansion-panel>
+            </mat-accordion>
+            <p *ngIf="orders?.length==0" class="text-center">You have not yet shopped with us.</p>
+          </div>
+          <div class="col-md-6">
+            <h3 class="text-center">Service Bookings</h3>
+            <br>
+            <mat-accordion *ngIf="bookings?.walking?.length > 0">
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Dog Walking Bookings
+                  </mat-panel-title>                  
+                </mat-expansion-panel-header>                                                
+                <table class="table table-hover animated">
+                  <thead>
+                    <tr>
+                      <th>Dog Size</th>
+                      <th>Hours</th>
+                      <th class="text-center units">Cost</th>
+                      <th class="text-center">Booking Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of bookings.walking">
+                      <td class="sub">
+                        {{item.dogSize}}                                                
+                      </td>
+                      <td class="sub" style="text-align: center">
+                        {{item.hours}}
+                      </td>
+                      <td class="sub text-center">Ksh {{item.cost}}</td>
+                      <td class="sub text-center units">{{item.date | date}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </mat-expansion-panel>
+            </mat-accordion>
+            <br>
+            <mat-accordion *ngIf="bookings?.grooming?.length > 0">
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Dog Grooming Bookings
+                  </mat-panel-title>                  
+                </mat-expansion-panel-header>                                                
+                <table class="table table-hover animated">
+                  <thead>
+                    <tr>
+                      <th>Dog Breed</th>
+                      <th>Sessions</th>
+                      <th class="text-center units">Cost</th>
+                      <th class="text-center">Booking Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of bookings.grooming">
+                      <td class="sub">
+                        {{item.dogBreed}}                                                
+                      </td>
+                      <td class="sub" style="text-align: center">
+                        <p *ngFor="let session of item.sessions">{{session.name}}</p>                        
+                      </td>
+                      <td class="sub text-center">Ksh {{item.cost}}</td>
+                      <td class="sub text-center units">{{item.date | date}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </mat-expansion-panel>
+            </mat-accordion>
+            <br>
+            <mat-accordion *ngIf="bookings?.sitting?.length > 0">
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Pet Sitting Bookings
+                  </mat-panel-title>                  
+                </mat-expansion-panel-header>                                                
+                <table class="table table-hover animated">
+                  <thead>
+                    <tr>
+                      <th>Dog Breed</th>
+                      <th>Days</th>
+                      <th class="text-center units">Cost</th>
+                      <th class="text-center">Booking Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of bookings.sitting">
+                      <td class="sub">
+                        {{item.dogBreed}}                                                
+                      </td>
+                      <td class="sub" style="text-align: center">
+                        {{item.days}}
+                      </td>
+                      <td class="sub text-center">Ksh {{item.cost}}</td>
+                      <td class="sub text-center units">{{item.date | date}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </mat-expansion-panel>
+            </mat-accordion>
+            <p *ngIf="!bookings" class="text-center">You have not yet placed any booking with us.</p>
+          </div>
+        </div>
   
       </div>
     </div>

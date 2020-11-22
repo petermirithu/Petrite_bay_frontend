@@ -14,6 +14,9 @@ import {  UserService, AuthGuard, AuthInterceptor } from './auth/user.service'
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
     AppRoutingModule,  
     HttpClientModule,    
     NgxUiLoaderModule,
-    NgxUiLoaderHttpModule   
+    NgxUiLoaderHttpModule,
+    BrowserAnimationsModule,
+    MatBadgeModule,MatIconModule
   ],
   providers: [UserService,AuthGuard,{
     provide: HTTP_INTERCEPTORS,

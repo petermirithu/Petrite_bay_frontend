@@ -10,6 +10,8 @@ import { AboutComponent} from './core/about/about.component'
 import{ContactComponent} from './core/contact/contact.component'
 import {SigninComponent} from './core/signin/signin.component'
 import { AuthGuard } from './auth/user.service';
+import {BookingComponent} from './core/booking/booking.component'
+import {OrdersummaryComponent} from './core/ordersummary/ordersummary.component'
 
 const routes: Routes =[  
     { path: '', redirectTo: '/home', pathMatch: 'full' },    
@@ -18,7 +20,9 @@ const routes: Routes =[
     { path: 'signup',           component: SignupComponent},    
     { path: 'about',            component:AboutComponent},
     { path: 'contact',           component:ContactComponent},
-    { path: 'signin',            component:SigninComponent}
+    { path: 'signin',            component:SigninComponent},
+    { path: 'book',               component:BookingComponent,canActivate: [AuthGuard]},
+    { path: 'checkout',               component:OrdersummaryComponent,canActivate: [AuthGuard]}
 
 ];
 

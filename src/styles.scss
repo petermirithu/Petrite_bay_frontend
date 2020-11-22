@@ -1,8 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "~animate.css/animate.min.css";
 
 .page-carousel{      
   border: none !important;
   width: 100%;
   height: 100vh !important;
+}
+body{
+  scroll-behavior: smooth;
 }

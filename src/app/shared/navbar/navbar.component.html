@@ -1,11 +1,14 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
     <div class="container">
         <div class="navbar-translate">
-            <img src="assets/img/mine/logo.jpeg" class="img img-responsive" style="width:40px; border-radius:10px 10px 10px 10px;">
+            <img src="assets/img/mine/logo.jpeg" class="img img-responsive"
+                style="width:40px; border-radius:10px 10px 10px 10px;">
             <a class="navbar-brand" routerLink="/">
                 <strong>Pet<span style="color: #CC2936;">rite </span>Bay</strong>
             </a>
-            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse"
+                data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                aria-label="Toggle navigation" (click)="sidebarToggle()">
                 <span class="navbar-toggler-bar"></span>
                 <span class="navbar-toggler-bar"></span>
                 <span class="navbar-toggler-bar"></span>
@@ -13,48 +16,107 @@
         </div>
         <div class="navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item" >
-                    <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="">
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom">
                         <i class="fab fa-twitter"></i>
                         <p class="d-lg-none">Twitter</p>
                     </a>
-                </li> 
-                <li class="nav-item" >
-                    <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom">
                         <i class="fab fa-facebook-square"></i>
                         <p class="d-lg-none">Facebook</p>
                     </a>
                 </li>
-                <li class="nav-item" >
-                    <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="">
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom">
                         <i class="fab fa-instagram"></i>
                         <p class="d-lg-none">Instagram</p>
                     </a>
                 </li>
-                <li class="nav-item" >
-                    <a class="nav-link" rel="tooltip" title="Star on GitHub" data-placement="bottom" href="">
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="Star on GitHub" data-placement="bottom">
                         <i class="fab fa-github"></i>
                         <p class="d-lg-none">GitHub</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a [routerLink]="['/about']"  class="nav-link"><i class="nc-icon nc-book-bookmark"></i>About us</a>
+                    <a class="cartIcon nav-link" data-toggle="modal" data-target="#cartModal" style="cursor: pointer;">
+                        <mat-icon matBadge="{{cart?.products?.length || '0' }}" matBadgeColor="warn">shopping_cart
+                        </mat-icon>
+                    </a>
                 </li>
                 <li class="nav-item">
+                    <a [routerLink]="['/book']" class="nav-link"><i class="nc-icon nc-delivery-fast"></i>Book us</a>
+                </li>
+
+                <li class="nav-item">
+                    <a [routerLink]="['/about']" class="nav-link"><i class="nc-icon nc-book-bookmark"></i>About us</a>
+                </li>
+
+                <li class="nav-item">
                     <a [routerLink]="['/contact']" class="nav-link"><i class="nc-icon nc-send"></i>Contact us</a>
-                </li>                
-                
+                </li>
+
                 <li ngbDropdown class="d-inline-block dropdown nav-item" style="cursor: pointer;" *ngIf="user">
-                    <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-badge"></i>Account</a>
+                    <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i
+                            class="nc-icon nc-badge"></i>Account</a>
                     <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-primary">
-                        <a class="dropdown-item" [routerLink]="['/profile', userservice.user_current.id]">Profile for {{user.name | titlecase}}</a>
-                        <a class="dropdown-item" (click)="signout()">Log Out</a>                            
+                        <a class="dropdown-item" [routerLink]="['/profile', userservice.user_current.id]">Profile for
+                            {{user.name | titlecase}}</a>
+                        <a class="dropdown-item" (click)="signout()">Log Out</a>
                     </div>
-                </li>                
+                </li>
                 <li class="nav-item" *ngIf="!user">
                     <a [routerLink]="['/signin']" class="btn btn-danger btn-round">Sign in</a>
-                </li>                
+                </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartmodal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLongTitle">Cart</h3>                                        
+                <h5 class="text-muted">Total: Ksh {{cart?.total || 0}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>                                        
+            </div>
+            <div class="modal-body">
+                <div *ngIf="cart?.products?.length>0">                                            
+                    <div *ngFor="let item of cart?.products">
+                        <div class="item row card">
+                            <div class="info-left col-sm-12">
+                                <span>
+                                    <i class="fas fa-times-circle remove" data-dismiss="modal"
+                                    (click)="removeItem(userservice.user_current.id,item.product.id)"
+                                    style="cursor: pointer; float: right; margin-top: 5px;"></i>
+                                    <img src="https://res.cloudinary.com/dycuxocgb/{{item.product.image}}" width="50px">                                    
+                                    <span class="itemname">{{item.product.name |titlecase}}</span>                                    
+                                </span>
+                                <small class="text-muted"
+                                    style="color: #0563b1 !important;">__({{item.quantity}})</small>                                    
+                                <p><small class="text-muted">Cost: ksh {{item.units_price}}</small></p>
+                            </div>                            
+                        </div>                        
+                    </div>                        
+                </div>
+                <div *ngIf="cart?.products?.length<1">
+                    <h5 class="text-center">No items in Cart</h5>
+                </div>
+            </div>
+            <div class="modal-footer">                    
+                <button *ngIf="cart?.products?.length>0" [routerLink]="['/checkout']" data-dismiss="modal" class="btn btn-outline-primary btn-round"
+                    >Checkout</button>
+                &nbsp;
+                &nbsp;
+                <button data-dismiss="modal" class="btn btn-outline-danger btn-round"
+                    >Close</button>
+            </div>
+        </div>
+    </div>
+</div>
